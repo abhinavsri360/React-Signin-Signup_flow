@@ -6,6 +6,15 @@ function signup () {
   return (
     <div className='form1'>
       <Form>
+        <Form.Group as={Row} controlId='formHorizontalName'>
+          <Form.Label column sm={2}>
+      Name
+          </Form.Label>
+          <Col sm={10}>
+            <Form.Control type='name' placeholder='Name' />
+          </Col>
+        </Form.Group>
+
         <Form.Group as={Row} controlId='formHorizontalEmail'>
           <Form.Label column sm={2}>
       Email
@@ -13,6 +22,9 @@ function signup () {
           <Col sm={10}>
             <Form.Control type='email' placeholder='Email' />
           </Col>
+          <Form.Text className='text-muted'>
+            We'll never share your email with anyone else.
+          </Form.Text>
         </Form.Group>
 
         <Form.Group as={Row} controlId='formHorizontalPassword'>
@@ -21,38 +33,6 @@ function signup () {
           </Form.Label>
           <Col sm={10}>
             <Form.Control type='password' placeholder='Password' />
-          </Col>
-        </Form.Group>
-        <fieldset>
-          <Form.Group as={Row}>
-            <Form.Label as='legend' column sm={2}>
-        Role
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Check
-                type='radio'
-                label='Coder'
-                name='formHorizontalRadios'
-                id='formHorizontalRadios1'
-              />
-              <Form.Check
-                type='radio'
-                label='Developer'
-                name='formHorizontalRadios'
-                id='formHorizontalRadios2'
-              />
-              <Form.Check
-                type='radio'
-                label='Maintainer'
-                name='formHorizontalRadios'
-                id='formHorizontalRadios3'
-              />
-            </Col>
-          </Form.Group>
-        </fieldset>
-        <Form.Group as={Row} controlId='formHorizontalCheck'>
-          <Col sm={{ span: 10, offset: 2 }}>
-            <Form.Check label='Remember me' />
           </Col>
         </Form.Group>
 
