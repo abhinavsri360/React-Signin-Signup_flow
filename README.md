@@ -7,10 +7,10 @@ Contributions will be a great help as this is still under construction.
 
 Contributions that can be made:
 
-[ ] Delete account page
-[ ] Update account page
-[ ] Footer addition
-[ ] New features :thinking:
+- [ ] Delete account page
+- [ ] Update account page
+- [ ] Footer addition
+- [ ] New features :thinking:
 
 Thank you so much for visiting this repository :heart: Liked this? :star: Want to Contribute? :fork_and_knife:
 
