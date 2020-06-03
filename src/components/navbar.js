@@ -3,16 +3,9 @@ import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 class navbar extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      isLoggedIn: true
-    }
-  }
-
   render () {
-    const { isLoggedIn } = this.state
-    if (!isLoggedIn) {
+    const islog = this.props.isLoggedIn
+    if (!islog) {
       return (
         <div>
           <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
