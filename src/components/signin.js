@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Col, Row } from 'react-bootstrap'
+import { Form, Button, Col, Row, Container } from 'react-bootstrap'
 import axios from 'axios'
 import './css/signin.css'
 
@@ -32,7 +32,9 @@ export class signin extends Component {
   render () {
     const { email, password } = this.state
     return (
-      <div className='form1'>
+      <Container>
+      <Row style={{padding: 20}}>
+      <Col md={{ span: 6, offset: 3}}>
         <Form>
           <Form.Group as={Row} controlId='formHorizontalEmail'>
             <Form.Label column sm={2}>
@@ -58,7 +60,9 @@ export class signin extends Component {
             </Col>
           </Form.Group>
         </Form>
-      </div>
+      </Col>
+      </Row>
+      </Container>
     )
   }
 }

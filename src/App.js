@@ -7,15 +7,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom'
 import sup from './components/signup'
 import home from './components/home'
 
-export class App extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      isLoggedIn: true
-    }
-  }
-
+class App extends Component {
   render () {
     return (
       <HashRouter>
