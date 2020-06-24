@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Row, Container } from 'react-bootstrap'
 import axios from 'axios'
-import './css/signin.css'
 
 export class signin extends Component {
   constructor(props) {
     super(props)
   
     this.state = {
-       email: '',
-       password: ''
+      email: '',
+      password: ''
     }
   }
 

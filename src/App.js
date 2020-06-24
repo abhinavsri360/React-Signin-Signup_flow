@@ -1,28 +1,18 @@
 import React, { Component } from 'react'
-import './App.css'
-import welcome from './components/welcome'
+import { HashRouter } from 'react-router-dom'
 import Navbar from './components/navbar'
-import sin from './components/signin'
-import { HashRouter, Switch, Route } from 'react-router-dom'
-import sup from './components/signup'
-import home from './components/home'
+import Header from './components/header'
 
 class App extends Component {
   render () {
     return (
       <HashRouter>
-        <div className='App'>
-          <Navbar />
-          <Switch>
-            <Route path='/' component={welcome} exact />
-            <Route path='/signin' component={sin} />
-            <Route path='/signup' component={sup} />
-            <Route path='/home' component={home} />
-          </Switch>
-        </div>
+        <Navbar />
+        <Header />
       </HashRouter>
     )
   }
 }
 
 export default App
+/* mongod --dbpath=data --bind_ip 127.0.0.1 */
