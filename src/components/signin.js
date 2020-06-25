@@ -19,12 +19,17 @@ export class signin extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
     
-    axios.get('https://jsonplaceholder.typicode.com/posts',this.state)
+    axios.get('http://localhost:5000/users?'+this.email, this.state)
     .then(res =>{
-      console.log(res)
+      if(res.status === 200){
+        window.alert('Logged in successfully')
+      }
+      else{
+        window.alert('There was error logging in')
+      }
     })
     .catch(error =>{
-      console.log(error)
+      window.alert('There was error logging in')
     })
   }
 
@@ -34,7 +39,7 @@ export class signin extends Component {
       <Container>
       <Row style={{padding: 20}}>
       <Col md={{ span: 6, offset: 3}}>
-        <Form>
+        <Form onSubmit={this.submitHandler}>
           <Form.Group as={Row} controlId='formHorizontalEmail'>
             <Form.Label column sm={2}>
       Email
@@ -55,7 +60,7 @@ export class signin extends Component {
 
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
-              <Button type='submit' onSubmit={this.submitHandler}>Sign in</Button>
+              <Button type='submit'>Sign in</Button>
             </Col>
           </Form.Group>
         </Form>

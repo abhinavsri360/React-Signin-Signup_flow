@@ -9,8 +9,7 @@ export class signup extends Component {
     this.state = {
       name: '',
       email: '',
-      password: '',
-      users: []
+      password: ''
     }
   }
 
@@ -20,25 +19,17 @@ export class signup extends Component {
 
   submitHandler = (e) =>{
     e.preventDefault()
-    
-    const user = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password
-    }
 
-    console.log(user)
-
-    axios.post('http://localhost:5000/users', user)
+    axios.post('http://localhost:5000/users', this.state)
       .then((res) => {
         if(res.status === 200){
         window.location = '/'
       }
       else{
-        window.location = '/error'
+        window.alert('There was error creating account')
       }
     })
-    .catch((res) => window.location = '/error')
+    .catch((res) => window.alert('There was error creating account'))
       /*.then(res => console.log(res.data))*/
 
     // window.location = '/'
