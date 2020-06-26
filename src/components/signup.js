@@ -20,7 +20,7 @@ export class signup extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
 
-    axios.post('http://localhost:5000/users', this.state)
+    axios.post('http://localhost:5000/users/signup', this.state)
       .then((res) => {
         if(res.status === 200){
         window.location = '/'

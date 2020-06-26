@@ -18,19 +18,18 @@ export class signin extends Component {
 
   submitHandler = (e) =>{
     e.preventDefault()
-    
-    axios.get('http://localhost:5000/users?'+this.email, this.state)
-    .then(res =>{
-      if(res.status === 200){
-        window.alert('Logged in successfully')
+    console.log(this.state.email)
+    console.log(this.state.password)
+    axios.get('http://localhost:5000/users/login', this.state)
+      .then((res) => {
+        if(res.status === 200){
+        window.location = '/'
       }
       else{
-        window.alert('There was error logging in')
+        window.alert('There was error logging in ')
       }
     })
-    .catch(error =>{
-      window.alert('There was error logging in')
-    })
+    .catch((res) => window.alert('There was error logging in'))
   }
 
   render () {
