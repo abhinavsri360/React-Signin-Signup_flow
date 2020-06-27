@@ -3,9 +3,9 @@ import { Form, Button, Col, Row, Container } from 'react-bootstrap'
 import axios from 'axios'
 
 export class signin extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-  
+
     this.state = {
       email: '',
       password: ''
@@ -18,18 +18,21 @@ export class signin extends Component {
 
   submitHandler = (e) =>{
     e.preventDefault()
-    console.log(this.state.email)
-    console.log(this.state.password)
-    axios.get('http://localhost:5000/users/login', this.state)
+
+    axios.post('http://localhost:5000/users/signin', this.state)
       .then((res) => {
+        console.log(res.status)
         if(res.status === 200){
         window.location = '/'
       }
       else{
-        window.alert('There was error logging in ')
+        window.alert('There was error logging in')
       }
     })
-    .catch((res) => window.alert('There was error logging in'))
+    .catch((res) => {console.log(res); console.log(res.status); window.alert('There was error logging in')})
+      /*.then(res => console.log(res.data))*/
+
+    // window.location = '/'
   }
 
   render () {
@@ -39,31 +42,31 @@ export class signin extends Component {
       <Row style={{padding: 20}}>
       <Col md={{ span: 6, offset: 3}}>
         <Form onSubmit={this.submitHandler}>
-          <Form.Group as={Row} controlId='formHorizontalEmail'>
-            <Form.Label column sm={2}>
-      Email
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control type='email' placeholder='Email' name='email' value={email} onChange={this.changeHandler} />
-            </Col>
-          </Form.Group>
+            <Form.Group as={Row} controlId='formHorizontalEmail'>
+              <Form.Label column sm={2}>
+        Email
+              </Form.Label>
+              <Col sm={10}>
+                <Form.Control type='email' name='email' placeholder='Email' value={email} onChange={this.changeHandler} />
+              </Col>
+            </Form.Group>
 
-          <Form.Group as={Row} controlId='formHorizontalPassword'>
-            <Form.Label column sm={2}>
-      Password
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control type='password' placeholder='Password' name='password' value={password} onChange={this.changeHandler} />
-            </Col>
-          </Form.Group>
+            <Form.Group as={Row} controlId='formHorizontalPassword'>
+              <Form.Label column sm={2}>
+        Password
+              </Form.Label>
+              <Col sm={10}>
+                <Form.Control type='password' name='password' placeholder='Password' value={password} onChange={this.changeHandler} />
+              </Col>
+            </Form.Group>
 
-          <Form.Group as={Row}>
-            <Col sm={{ span: 10, offset: 2 }}>
-              <Button type='submit'>Sign in</Button>
-            </Col>
-          </Form.Group>
-        </Form>
-      </Col>
+            <Form.Group as={Row}>
+              <Col sm={{ span: 10, offset: 2 }}>
+                <Button type='submit'>Sign in</Button>
+              </Col>
+            </Form.Group>
+          </Form>
+          </Col>
       </Row>
       </Container>
     )
