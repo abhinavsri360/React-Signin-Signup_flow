@@ -7,8 +7,7 @@ export class signup extends Component {
     super(props)
 
     this.state = {
-      name: '',
-      email: '',
+      username: '',
       password: ''
     }
   }
@@ -20,7 +19,7 @@ export class signup extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
 
-    axios.post('http://localhost:5000/users/signup', this.state)
+    axios.post('http://localhost:5000/user/register', this.state)
       .then((res) => {
         if(res.status === 200){
         window.location = '/'
@@ -36,7 +35,7 @@ export class signup extends Component {
   }
 
   render () {
-    const { name, email, password } = this.state
+    const { username, password } = this.state
     return (
       <Container>
       <Row style={{padding: 20}}>
@@ -44,19 +43,10 @@ export class signup extends Component {
         <Form onSubmit={this.submitHandler}>
             <Form.Group as={Row} controlId='formHorizontalName'>
               <Form.Label column sm={2}>
-        Name
+        Username
               </Form.Label>
               <Col sm={10}>
-                <Form.Control type='name' name='name' placeholder='Name' value={name} onChange={this.changeHandler} />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row} controlId='formHorizontalEmail'>
-              <Form.Label column sm={2}>
-        Email
-              </Form.Label>
-              <Col sm={10}>
-                <Form.Control type='email' name='email' placeholder='Email' value={email} onChange={this.changeHandler} />
+                <Form.Control type='name' name='username' placeholder='Username' value={username} onChange={this.changeHandler} />
               </Col>
             </Form.Group>
 

@@ -7,7 +7,7 @@ export class signin extends Component {
     super(props)
 
     this.state = {
-      email: '',
+      username: '',
       password: ''
     }
   }
@@ -19,7 +19,7 @@ export class signin extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
 
-    axios.post('http://localhost:5000/users/signin', this.state)
+    axios.post('http://localhost:5000/user/login', this.state)
       .then((res) => {
         console.log(res.status)
         if(res.status === 200){
@@ -29,14 +29,14 @@ export class signin extends Component {
         window.alert('There was error logging in')
       }
     })
-    .catch((res) => {console.log(res); console.log(res.status); window.alert('There was error logging in')})
+    .catch((res) => window.alert('There was error logging in'))
       /*.then(res => console.log(res.data))*/
 
     // window.location = '/'
   }
 
   render () {
-    const { email, password } = this.state
+    const { username, password } = this.state
     return (
       <Container>
       <Row style={{padding: 20}}>
@@ -44,10 +44,10 @@ export class signin extends Component {
         <Form onSubmit={this.submitHandler}>
             <Form.Group as={Row} controlId='formHorizontalEmail'>
               <Form.Label column sm={2}>
-        Email
+        Username
               </Form.Label>
               <Col sm={10}>
-                <Form.Control type='email' name='email' placeholder='Email' value={email} onChange={this.changeHandler} />
+                <Form.Control type='name' name='username' placeholder='Username' value={username} onChange={this.changeHandler} />
               </Col>
             </Form.Group>
 
