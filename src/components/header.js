@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
-import sin from './signin'
+import Signin from './signin'
 import welcome from './welcome'
-import sup from './signup'
+import Signup from './signup'
 import home from './home'
 import error from './error'
 import { connect } from 'react-redux'
@@ -22,21 +22,21 @@ const mapDispatchToProps = (dispatch) => ({
 
 class header extends Component {
   render () {
-    const Signup = () => {
+    const SignupPage = () => {
       return (
-        <sup auth={this.props.auth} registerUser={this.props.registerUser} />
+        <Signup auth={this.props.auth} registerUser={this.props.registerUser} />
       )
     }
-    const Signin = () => {
+    const SigninPage = () => {
       return (
-        <sin auth={this.props.auth} loginUser={this.props.loginUser} />
+        <Signin auth={this.props.auth} loginUser={this.props.loginUser} />
       )
     }
     return (
       <Switch>
         <Route path='/' component={welcome} exact />
-        <Route path='/signin' component={Signin} />
-        <Route path='/signup' component={Signup} />
+        <Route path='/signin' component={SigninPage} />
+        <Route path='/signup' component={SignupPage} />
         <Route path='/home' component={home} />
         <Route path='/error' component={error} />
       </Switch>

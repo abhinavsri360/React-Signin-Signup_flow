@@ -49,7 +49,6 @@ export const registerUser = (creds) => (dispatch) => {
     .then(response => response.json())
     .then(response => {
       if (response.success) {
-        localStorage.setItem('creds', JSON.stringify(creds))
         dispatch(receiveRegister(response))
       } else {
         var error = new Error('Error ' + response.status)

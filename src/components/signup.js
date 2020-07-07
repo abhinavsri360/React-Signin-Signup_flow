@@ -22,7 +22,7 @@ export class signup extends Component {
 
     this.props.registerUser(this.state)
 
-    window.location = '/'
+    // window.location = '/'
 
     /*axios.post('http://localhost:5000/user/register', this.state)
       .then((res) => {
