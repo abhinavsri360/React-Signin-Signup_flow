@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Row, Container } from 'react-bootstrap'
-import axios from 'axios'
+//import axios from 'axios'
 
 export class signup extends Component {
   constructor (props) {
@@ -10,6 +10,7 @@ export class signup extends Component {
       username: '',
       password: ''
     }
+    this.submitHandler = this.submitHandler.bind(this)
   }
 
   changeHandler = (e) =>{
@@ -19,7 +20,11 @@ export class signup extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
 
-    axios.post('http://localhost:5000/user/register', this.state)
+    this.props.registerUser(this.state)
+
+    window.location = '/'
+
+    /*axios.post('http://localhost:5000/user/register', this.state)
       .then((res) => {
         if(res.status === 200){
         window.location = '/'
@@ -31,7 +36,7 @@ export class signup extends Component {
     .catch((res) => window.alert('There was error creating account'))
       /*.then(res => console.log(res.data))*/
 
-    // window.location = '/'
+    // window.location = '/'*/
   }
 
   render () {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Row, Container } from 'react-bootstrap'
-import axios from 'axios'
+//import axios from 'axios'
 
 export class signin extends Component {
   constructor (props) {
@@ -19,7 +19,9 @@ export class signin extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
 
-    axios.post('http://localhost:5000/user/login', this.state)
+    this.props.loginUser(this.state)
+
+    /*axios.post('http://localhost:5000/user/login', this.state)
       .then((res) => {
         console.log(res.status)
         if(res.status === 200){
@@ -32,7 +34,7 @@ export class signin extends Component {
     .catch((res) => window.alert('There was error logging in'))
       /*.then(res => console.log(res.data))*/
 
-    // window.location = '/'
+    // window.location = '/'*/
   }
 
   render () {

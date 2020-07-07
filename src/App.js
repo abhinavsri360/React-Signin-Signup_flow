@@ -2,14 +2,20 @@ import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
 import Navbar from './components/navbar'
 import Header from './components/header'
+import { Provider } from 'react-redux'
+import { ConfigureStore } from './redux/store'
+
+const store = ConfigureStore()
 
 class App extends Component {
   render () {
     return (
-      <HashRouter>
-        <Navbar />
-        <Header />
-      </HashRouter>
+      <Provider store={store}>
+        <HashRouter>
+          <Navbar />
+          <Header />
+        </HashRouter>
+      </Provider>
     )
   }
 }
