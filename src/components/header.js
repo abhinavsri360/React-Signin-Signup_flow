@@ -24,12 +24,12 @@ class header extends Component {
   render () {
     const SignupPage = () => {
       return (
-        <Signup auth={this.props.auth} registerUser={this.props.registerUser} />
+        <Signup isLoading={this.props.auth.isLoading} registerUser={this.props.registerUser} />
       )
     }
     const SigninPage = () => {
       return (
-        <Signin auth={this.props.auth} loginUser={this.props.loginUser} />
+        <Signin isLoading={this.props.auth.isLoading} loginUser={this.props.loginUser} />
       )
     }
     return (
