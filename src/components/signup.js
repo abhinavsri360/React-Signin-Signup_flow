@@ -22,8 +22,15 @@ export class signup extends Component {
     e.preventDefault()
 
     this.props.registerUser(this.state)
-
-    window.location = '/'
+    .then( res => {
+      if(typeof res === 'undefined'){
+        window.location = '/#/signin'
+      }
+      else{
+        window.alert('There was error creating account')
+      }
+    })
+    // window.location = '/'
   } 
 
   render () {

@@ -21,6 +21,12 @@ export class signin extends Component {
     e.preventDefault()
 
     this.props.loginUser(this.state)
+    .then( res => {
+      if(typeof res === 'undefined')
+        window.location = '/#/home'
+      else
+        window.alert('There was error logging in')
+    })
 
   }
 

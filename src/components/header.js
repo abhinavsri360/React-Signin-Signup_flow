@@ -3,8 +3,9 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import Signin from './signin'
 import welcome from './welcome'
 import Signup from './signup'
-import home from './home'
+import Home from './home'
 import error from './error'
+import Navbar from './navbar'
 import { connect } from 'react-redux'
 import { registerUser, loginUser, logoutUser } from '../redux/ActionCreators'
 
@@ -32,14 +33,22 @@ class header extends Component {
         <Signin isLoading={this.props.auth.isLoading} loginUser={this.props.loginUser} />
       )
     }
+    const HomePage = () => {
+      return (
+        <Home isAuthenticated={this.props.auth.isAuthenticated} />
+      )
+    }
     return (
-      <Switch>
-        <Route path='/' component={welcome} exact />
-        <Route path='/signin' component={SigninPage} />
-        <Route path='/signup' component={SignupPage} />
-        <Route path='/home' component={home} />
-        <Route path='/error' component={error} />
-      </Switch>
+      <div>
+        <Navbar isAuthenticated={this.props.auth.isAuthenticated} logoutUser={this.props.logoutUser} />
+        <Switch>
+          <Route path='/' component={welcome} exact />
+          <Route path='/signin' component={SigninPage} />
+          <Route path='/signup' component={SignupPage} />
+          <Route path='/home' component={HomePage} />
+          <Route path='/error' component={error} />
+        </Switch>
+      </div>
     )
   }
 }

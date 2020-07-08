@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
-import Navbar from './components/navbar'
 import Header from './components/header'
 import { Provider } from 'react-redux'
 import { ConfigureStore } from './redux/store'
@@ -12,7 +11,6 @@ class App extends Component {
     return (
       <Provider store={store}>
         <HashRouter>
-          <Navbar />
           <Header />
         </HashRouter>
       </Provider>
