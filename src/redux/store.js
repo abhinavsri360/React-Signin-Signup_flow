@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Auth } from './auth'
 import thunk from 'redux-thunk'
-//import logger from 'redux-logger'
+// import logger from 'redux-logger'
 
 export const ConfigureStore = () => {
   const store = createStore(

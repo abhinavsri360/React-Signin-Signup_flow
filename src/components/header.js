@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
 import Signin from './signin'
 import Welcome from './welcome'
 import Signup from './signup'
 import Home from './home'
-import error from './error'
+import Pagenotfound from './404'
 import Navbar from './navbar'
 import { connect } from 'react-redux'
 import { registerUser, loginUser, logoutUser } from '../redux/ActionCreators'
@@ -25,12 +25,12 @@ class header extends Component {
   render () {
     const SignupPage = () => {
       return (
-        <Signup isLoading={this.props.auth.isLoading} registerUser={this.props.registerUser} />
+        <Signup isAuthenticated={this.props.auth.isAuthenticated} isLoading={this.props.auth.isLoading} registerUser={this.props.registerUser} />
       )
     }
     const SigninPage = () => {
       return (
-        <Signin isLoading={this.props.auth.isLoading} loginUser={this.props.loginUser} />
+        <Signin isAuthenticated={this.props.auth.isAuthenticated} isLoading={this.props.auth.isLoading} loginUser={this.props.loginUser} />
       )
     }
     const HomePage = () => {
@@ -51,7 +51,8 @@ class header extends Component {
           <Route path='/signin' component={SigninPage} />
           <Route path='/signup' component={SignupPage} />
           <Route path='/home' component={HomePage} />
-          <Route path='/error' component={error} />
+          <Route path='/404' component={Pagenotfound} />
+          <Redirect to='/404' />
         </Switch>
       </div>
     )
