@@ -5,7 +5,7 @@ class home extends Component {
     if (this.props.isAuthenticated) {
       return (
         <div>
-          <h1>Welcome! {this.props.username}</h1>
+          <h1>Welcome! {this.props.user.username}</h1>
         </div>
       )
     } else {

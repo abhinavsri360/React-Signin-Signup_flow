@@ -107,7 +107,7 @@ export const loginUser = (creds) => (dispatch) => {
     .then(response => {
       if (response.success) {
         localStorage.setItem('token', response.token)
-        localStorage.setItem('creds', JSON.stringify(creds.username))
+        localStorage.setItem('creds', JSON.stringify(creds))
         dispatch(receiveLogin(response))
       } else {
         var error = new Error('Error ' + response.status)
@@ -127,6 +127,13 @@ export const requestLogout = () => {
 export const receiveLogout = () => {
   return {
     type: ActionTypes.LOGOUT_SUCCESS
+  }
+}
+
+export const logoutError = (message) => {
+  return {
+    type: ActionTypes.LOGOUT_FAILURE,
+    message
   }
 }
 

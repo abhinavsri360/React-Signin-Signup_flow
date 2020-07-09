@@ -40,7 +40,7 @@ class header extends Component {
     }
     const WelcomePage = () => {
       return (
-        <Welcome username={this.props.auth.username} isAuthenticated={this.props.auth.isAuthenticated} />
+        <Welcome user={this.props.auth.user} isAuthenticated={this.props.auth.isAuthenticated} />
       )
     }
     return (
