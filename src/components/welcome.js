@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
+import './css/welcome.css'
 
 class home extends Component {
   render () {
     if (this.props.isAuthenticated) {
       return (
-        <div>
-          <h1>Welcome! {this.props.user.username}</h1>
-        </div>
+        <body className='body'>
+          <div className='welcome'>
+            <h1 className='neon'>Welcome! {this.props.user.username}</h1>
+          </div>
+        </body>
       )
     } else {
       return (
-        <div>
-          <h1>Welcome!</h1>
-        </div>
+        <body className='body'>
+          <div className='welcome'>
+            <h1 className='neon'>Welcome!</h1>
+          </div>
+        </body>
       )
     }
   }
