@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Col, Row, Container } from 'react-bootstrap'
+import { Form, Button, Col, Row, Container, InputGroup } from 'react-bootstrap'
 import Loading from './loading'
 // import axios from 'axios'
 
@@ -23,7 +23,7 @@ export class signin extends Component {
     this.props.loginUser(this.state)
     .then( res => {
       if(typeof res === 'undefined')
-        window.location = '/#/home'
+        window.location = '/'
       else
         window.alert('There was error logging in')
     })
@@ -43,7 +43,11 @@ export class signin extends Component {
         Username
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type='name' name='username' placeholder='Username' value={username} onChange={this.changeHandler} />
+                    <InputGroup.Prepend>
+                      <InputGroup.Text>@</InputGroup.Text>
+                    
+                    <Form.Control autoFocus='true' autoComplete='off' type='name' name='username' placeholder='icognito' value={username} onChange={this.changeHandler} />
+                    </InputGroup.Prepend>
                   </Col>
                 </Form.Group>
 
@@ -52,13 +56,13 @@ export class signin extends Component {
         Password
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type='password' name='password' placeholder='Password' value={password} onChange={this.changeHandler} />
+                    <Form.Control type='password' name='password' placeholder='******' value={password} onChange={this.changeHandler} />
                   </Col>
                 </Form.Group>
 
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 2 }}>
-                    <Button type='submit'>Sign in</Button>
+                    <Button type='submit' variant='dark'>Sign in</Button>
                   </Col>
                 </Form.Group>
               </Form>
@@ -69,7 +73,7 @@ export class signin extends Component {
     } else {
       return (
         <Container>
-          <Row style={{ padding: 20 }}>
+          <Row style={{ padding: 200 }}>
             <Col md={{ span: 6, offset: 3 }}>
               <Loading />
             </Col>

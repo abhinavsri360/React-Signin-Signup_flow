@@ -107,7 +107,7 @@ export const loginUser = (creds) => (dispatch) => {
     .then(response => {
       if (response.success) {
         localStorage.setItem('token', response.token)
-        localStorage.setItem('creds', JSON.stringify(creds))
+        localStorage.setItem('creds', JSON.stringify(creds.username))
         dispatch(receiveLogin(response))
       } else {
         var error = new Error('Error ' + response.status)

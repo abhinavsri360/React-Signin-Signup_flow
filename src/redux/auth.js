@@ -4,7 +4,7 @@ export const Auth = (state = {
   isLoading: false,
   isAuthenticated: !!localStorage.getItem('token'),
   token: localStorage.getItem('token'),
-  user: localStorage.getItem('creds') ? JSON.parse(localStorage.getItem('creds')) : null,
+  username: localStorage.getItem('creds') ? JSON.parse(localStorage.getItem('creds')) : null,
   errMess: null
 }, action) => {
   switch (action.type) {

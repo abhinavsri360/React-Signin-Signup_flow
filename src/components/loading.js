@@ -4,22 +4,22 @@ import './css/loading.css'
 function loading () {
   return (
     <div>
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
-      <div class='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
+      <div className='block' />
     </div>
   )
 }
