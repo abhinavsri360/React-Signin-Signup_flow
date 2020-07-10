@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap');
 
-body.body{
-    background-color: black;
+.welcome{
+    background-image: url('../images/bg.jpg');
     font-family: 'Josefin Sans', sans-serif;
+    height: 92.5vh;
+    overflow-y: hidden;
 }
 
 .neon{
