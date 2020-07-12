@@ -21,7 +21,12 @@ export class signup extends Component {
   submitHandler = (e) =>{
     e.preventDefault()
 
-    this.props.registerUser(this.state)
+    var user = {
+      username: this.state.username,
+      password: this.state.password
+    }
+
+    this.props.registerUser(user)
     .then( res => {
       if(typeof res === 'undefined'){
         window.location = '/#/signin'
@@ -53,7 +58,7 @@ export class signup extends Component {
                     <Col sm={10}>
                       <InputGroup.Prepend>
                         <InputGroup.Text>@</InputGroup.Text>
-                        <Form.Control autoFocus='true' autoComplete='off' type='name' name='username' placeholder='icognito' value={username} onChange={this.changeHandler} />
+                        <Form.Control autoFocus='true' minLength='3' maxLength='15' required autoComplete='off' type='name' name='username' placeholder='icognito' value={username} onChange={this.changeHandler} />
                       </InputGroup.Prepend>
                     </Col>
                   </Form.Group>
@@ -63,7 +68,7 @@ export class signup extends Component {
         Password
                     </Form.Label>
                     <Col sm={10}>
-                      <Form.Control type='password' name='password' placeholder='******' value={password} onChange={this.changeHandler} />
+                      <Form.Control type='password' minLength='8' required name='password' placeholder='******' value={password} onChange={this.changeHandler} />
                     </Col>
                   </Form.Group>
 
