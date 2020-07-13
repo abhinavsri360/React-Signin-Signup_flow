@@ -1,3 +1,5 @@
+[![HitCount](http://hits.dwyl.com/abhinavsri360/React-Signin-Signup_flow.svg)](http://hits.dwyl.com/abhinavsri360/React-Signin-Signup_flow)
+
 ## Signinup
 This project contains skeleton of Signin-up flow in **React** which is required every now and then, I've created this repository such that anyone in order to focus on his/her main project can pic this and continue to the main project.
 
