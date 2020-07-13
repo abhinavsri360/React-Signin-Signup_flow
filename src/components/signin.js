@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Row, Container, InputGroup } from 'react-bootstrap'
+import swal from 'sweetalert'
 import Loading from './loading'
 // import axios from 'axios'
 
@@ -30,7 +31,11 @@ export class signin extends Component {
       if(typeof res === 'undefined')
         window.location = '/'
       else
-        window.alert('There was error logging in')
+        swal({
+          title: 'Login error',
+          text: 'There was error logging in',
+          icon: 'error'
+        })
     })
 
   }

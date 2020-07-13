@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Row, Container, InputGroup } from 'react-bootstrap'
+import swal from 'sweetalert'
 import Loading from './loading'
 // import axios from 'axios'
 
@@ -11,7 +12,6 @@ export class signup extends Component {
       username: '',
       password: ''
     }
-    this.submitHandler = this.submitHandler.bind(this)
   }
 
   changeHandler = (e) =>{
@@ -32,7 +32,12 @@ export class signup extends Component {
         window.location = '/#/signin'
       }
       else{
-        window.alert('There was error creating account')
+        swal({
+          title: 'Creation error',
+          text: 'There was error creating account',
+          icon: 'error'
+        })
+        // window.alert('There was error creating account')
       }
     })
     // window.location = '/'
@@ -53,19 +58,19 @@ export class signup extends Component {
                 <Form onSubmit={this.submitHandler}>
                   <Form.Group as={Row} controlId='formHorizontalName'>
                     <Form.Label column sm={2}>
-        Username
+      Username
                     </Form.Label>
                     <Col sm={10}>
                       <InputGroup.Prepend>
                         <InputGroup.Text>@</InputGroup.Text>
-                        <Form.Control autoFocus='true' minLength='3' maxLength='15' required autoComplete='off' type='name' name='username' placeholder='icognito' value={username} onChange={this.changeHandler} />
+                        <Form.Control autoFocus minLength='3' maxLength='15' required autoComplete='off' type='name' name='username' placeholder='icognito' value={username} onChange={this.changeHandler} />
                       </InputGroup.Prepend>
                     </Col>
                   </Form.Group>
 
                   <Form.Group as={Row} controlId='formHorizontalPassword'>
                     <Form.Label column sm={2}>
-        Password
+      Password
                     </Form.Label>
                     <Col sm={10}>
                       <Form.Control type='password' minLength='8' required name='password' placeholder='******' value={password} onChange={this.changeHandler} />
